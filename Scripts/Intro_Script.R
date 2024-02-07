@@ -7,7 +7,7 @@
 #first install the following packages, all of these should be used in the code
 #(some might not if the code is commented out or if it was deleted in this final version)
 
-#install.packages(c("dplyr","tidyr","stringr","ggplot2","chron","viridis","esquisse","patchwork","mgcv", "MetBrewer", "ggrepel"))
+#install.packages(c("dplyr","tidyr","stringr","ggplot2","chron","viridis","esquisse","patchwork","mgcv", "MetBrewer", "ggrepel", "plotrix"))
 
 #Time to load the packages
 library("dplyr")
@@ -21,6 +21,7 @@ library("MetBrewer")
 library("gghighlight")
 library("ggrepel")
 library("mgcv")
+library("plottrix")
 
 #The following colour codes is the colourblind-friendly palette I've compiled for this project 
 #the last two colours I've reserved for reference sensors, the other are used for the park sensors if there are multiple displayed on one graph
