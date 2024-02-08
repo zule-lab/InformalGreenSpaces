@@ -6,29 +6,12 @@
 
 #THIS CODE WILL GENERATE GRAPHS WITH FRENCH TEXT 
 
-                               #############
-                               ## FALAISE ##
-                               #############
 #This code sets the base language of R to something, in this case french for the french graphs
 Sys.setlocale(category = "LC_ALL", "French")
 
-temperature_data_french <- read.csv("Input/Compiled_Data2023.csv")
-
-
-edited_temp_data_F <- temperature_data_french %>%
-  mutate(DateTime = str_replace_all(DateTime, '[\\.]',''), #'[\\.]','' is a string of code that replaces all instances of '.' by 'x', in this case since it's not defined its nothing 
-         #(this causes a problem with strptime if its a.m.)
-         DateTime = strptime(DateTime, format = "%Y-%m-%d %I:%M:%S %p")) %>% #strptime allows our data to be viewed as TIME and not like a character 
-  separate(DateTime, c("Date", "Time"), sep =" ", remove = FALSE) %>% #sep can split a column into two using a value, in this case " " is giving [space] as what wil split it
-  mutate(Date = as.Date(Date),
-         Time = replace_na(Time, "00:00:01"),Time = times(Time)) %>% #for some reason time is wonky at midnight so I replaced all values with 00:00:01
-  mutate(DayTime = case_when(Time > "6:00:00" & Time < "20:30:00" ~ 'Journée',
-                             Time <= "6:00:00" | Time >= "20:30:00" ~ 'Nuit')) #this logical sequences tells r to associate day or night with data that is between (or is) time frames 
-
-summarized_F <- edited_temp_data_F %>% 
-  group_by(Park, Date, DayTime) %>% #groups the data in these groups to perform the following operations
-  summarize(maxT = max(Temperature), #good if you need to look at mean temp of a day for a specific sensor
-            meanT = mean(Temperature))
+                               #############
+                               ## FALAISE ##
+                               #############
 
 
 falaise_subset_F <- subset(summarized_F, Park == "Falaise" | Park == "Falaise_Reference")
