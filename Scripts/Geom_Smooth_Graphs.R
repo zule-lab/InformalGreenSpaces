@@ -36,7 +36,7 @@ labeled_falaise_smooth_plot <- falaise_subset %>% #plotting the graph
   ggplot(combined, mapping = aes(Date, meanT, group = Park, color = Park)) +
   geom_smooth(method = "loess", span=.50, se=F, linewidth=2.5) + #span kept at 0.5 since it fit the data better and made the graphs the smoothest 
   geom_label_repel(data = falaise_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
-                   fontface = 'bold', color = 'white', show.legend = F, force=50, segment.color="black", segment.size=1) + 
+                   fontface = 'bold', color = 'white', show.legend = F, segment.color="black", segment.size=1, min.segment.length = 0) + 
   #Tip: Put repel labels AFTER the code for the smooth function makes it so the labels appear over the data (not hidden behind)!
     theme_classic(base_size = 15) + #increases the base size of all text 
   scale_color_manual(values=c("forestgreen", "gray48")) +
@@ -103,7 +103,8 @@ falaise_allsensors_sm_max = falaise_allsensors_summary %>%
 labeled_falaise_allsensors_plot <- falaise_allsensors_summary %>%
   ggplot(combined, mapping = aes(Date, meanT, group = Sensor_Name, color = Sensor_Name)) +
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +
-  geom_label_repel(data = falaise_allsensors_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Sensor_Name), size = 5), fontface = 'bold', color = 'white', show.legend = F) + 
+  geom_label_repel(data = falaise_allsensors_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Sensor_Name), size = 5),
+                   fontface = 'bold', color = 'white', show.legend = F, force=30, segment.color="black", segment.size=1, min.segment.length = 0) + 
   theme_classic(base_size = 15) + 
   scale_color_manual(values = c('#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + #my own colour palette that is easy to tell apart and is also colourblind friendly!
   scale_fill_manual(values = c('#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + #found in the intro :)
@@ -147,7 +148,7 @@ labeled_MHM_smooth_plot <- MHM_subset %>%
   ggplot(combined, mapping = aes(Date, meanT, group = Park, color = Park)) +
   geom_smooth(method = "loess", span=.55, se=F, linewidth=2.5) +  
   geom_label_repel(data = MHM_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
-                   fontface = 'bold', color = 'white', show.legend = F, force=50, segment.color="black", segment.size=1) + 
+                   fontface = 'bold', color = 'white', show.legend = F, force=50, segment.color="black", segment.size=1, min.segment.length = 0) + 
   theme_classic(base_size = 15) + 
   scale_color_manual(values=c("forestgreen", "gray48")) +
   scale_fill_manual(values=c("forestgreen", "gray48")) +
@@ -255,7 +256,7 @@ MHM_ParkSubTypes_plot <- parksubtypes_combined %>%
   geom_smooth(method = "loess", span=.5, se=F, linewidth=2.5) +
   #geom_label_repel(data = sm_max, aes(y=smooth, label= round(smooth,1), color = Park_Sub_Type)) + 
   geom_label_repel(data = parksubtypes_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park_Sub_Type), size = 5), 
-                   fontface = 'bold', color = 'white', show.legend = F, force=50, segment.color="black", segment.size=1) + 
+                   fontface = 'bold', color = 'white', show.legend = F, force=50, segment.color="black", segment.size=1, min.segment.length = 0) + 
   theme_classic(base_size = 15) + 
   scale_color_manual(values = c( '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
   scale_fill_manual(values = c('#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
@@ -299,7 +300,7 @@ labeled_MHM_allsensors_plot <- MHM_allsensors_summary %>%
   ggplot(combined, mapping = aes(Date, meanT, group = Sensor_Name, color = Sensor_Name)) +
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +
   geom_label_repel(data = MHM_allsensors_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Sensor_Name), size=5), 
-                   fontface = 'bold', color = 'white', show.legend = F, force=10, segment.color="black", segment.size=1) + 
+                   fontface = 'bold', color = 'white', show.legend = F, force=20, segment.color="black", segment.size=1, min.segment.length = 0) + 
   theme_classic(base_size = 15) + 
   scale_color_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#8100CC', '#BBBBBB')) + 
   scale_fill_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#8100CC', '#BBBBBB')) + 
@@ -341,7 +342,7 @@ labeled_CdesP_smooth_plot <- CdesP_subset %>%
   ggplot(combined, mapping = aes(Date, meanT, group = Park, color = Park)) +
   geom_smooth(method = "loess", span=.7, se=F, linewidth=2.5) +  
   geom_label_repel(data = CdesP_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
-                   fontface = 'bold', color = 'white', show.legend = F, force=10, segment.color="black", segment.size=1) + 
+                   fontface = 'bold', color = 'white', show.legend = F, force=10, segment.color="black", segment.size=1, min.segment.length = 0) + 
   theme_classic(base_size = 15) + 
   scale_color_manual(values=c("forestgreen", "gray48")) +
   scale_fill_manual(values=c("forestgreen", "gray48")) +
@@ -354,7 +355,8 @@ labeled_CdesP_smooth_plot <- CdesP_subset %>%
   facet_wrap(vars(DayTime))
 
 labeled_CdesP_smooth_plot
-#ggsave("CdesP_Smooth_Plot.png", plot=labeled_CdesP_smooth_plot_changed, path = "Graphics", dpi = 600, width = 25, height = 15, units = "cm")
+
+#ggsave("CdesP_Smooth_Plot.png", plot=labeled_CdesP_smooth_plot_changed, path = "Graphics", dpi = 500, width = 25, height = 15, units = "cm")
 
 ##
 
@@ -406,7 +408,7 @@ labeled_CdesP_allsensors_plot <- CdesP_allsensors_summary %>%
   ggplot(combined, mapping = aes(Date, meanT, group = Sensor_Name, color = Sensor_Name)) +
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +
   geom_label_repel(data = CdesP_allsensors_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Sensor_Name), size = 5), 
-                   fontface = 'bold', color = 'white', show.legend = F, force=20, segment.color="black", segment.size=1) + 
+                   fontface = 'bold', color = 'white', show.legend = F, force=10, segment.color="black", segment.size=1, min.segment.length = 0) + 
   theme_classic(base_size = 15) + 
   scale_color_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB', '#000000')) + 
   scale_fill_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB', '#000000')) + 
@@ -420,7 +422,7 @@ labeled_CdesP_allsensors_plot <- CdesP_allsensors_summary %>%
 
 labeled_CdesP_allsensors_plot
 
-#ggsave("CdesP_All_Sensors_Smooth_Plot.png", plot=labeled_CdesP_allsensors_plot, path = "Graphics", dpi = 600, width = 35, height = 20, units = "cm")
+#ggsave("CdesP_All_Sensors_Smooth_Plot.png", plot=labeled_CdesP_allsensors_plot, path = "Graphics", dpi = 500, width = 35, height = 20, units = "cm")
 
 
 #####
@@ -451,7 +453,7 @@ labeled_TP_smooth_plot <- TP_subset %>%
   ggplot(combined, mapping = aes(Date, meanT, group = Park, color = Park)) +
   geom_smooth(method = "loess", span=.55, se=F, linewidth=2.5) +  
   geom_label_repel(data = TP_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
-                   fontface = 'bold', color = 'white', show.legend = F, force=20, segment.color="black", segment.size=1) + 
+                   fontface = 'bold', color = 'white', show.legend = F, force=10, segment.color="black", segment.size=1, min.segment.length = 0) + 
   theme_classic(base_size = 15) + 
   scale_color_manual(values=c("forestgreen", "gray48")) +
   scale_fill_manual(values=c("forestgreen", "gray48")) +
@@ -466,7 +468,7 @@ labeled_TP_smooth_plot <- TP_subset %>%
 
 labeled_TP_smooth_plot 
 
-#ggsave("TP_Smooth_Plot.png", plot=labeled_TP_smooth_plot_changed, path = "Graphics", dpi = 600, width = 25, height = 15, units = "cm")
+#ggsave("TP_Smooth_Plot.png", plot=labeled_TP_smooth_plot, path = "Graphics", dpi = 500, width = 25, height = 15, units = "cm")
 
 ##
 
@@ -516,7 +518,7 @@ labeled_TP_allsensors_plot <- TP_allsensors_summary %>%
   ggplot(combined, mapping = aes(Date, meanT, group = Sensor_Name, color = Sensor_Name)) +
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +
   geom_label_repel(data = TP_allsensors_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Sensor_Name), size = 5),
-                   fontface = 'bold', color = 'white', show.legend = F, force=20, segment.color="black", segment.size=1) + 
+                   fontface = 'bold', color = 'white', show.legend = F, force=20, segment.color="black", segment.size=1, min.segment.length = 0) + 
   theme_classic(base_size = 15) + 
   scale_color_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
   scale_fill_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
@@ -531,4 +533,4 @@ labeled_TP_allsensors_plot <- TP_allsensors_summary %>%
 
 labeled_TP_allsensors_plot
 
-#ggsave("TP__Plot.png", plot=labeled_TP_smooth_plot_changed, path = "Graphics", dpi = 600, width = 25, height = 15, units = "cm")
+#ggsave("TP_All_Sensors_Smooth_Plot.png", plot=labeled_TP_allsensors_plot, path = "Graphics", dpi = 500, width = 25, height = 15, units = "cm")
