@@ -3,6 +3,8 @@
 
 ## Falaise
 
+falaise_subset <- subset(edited_temp_data, Park == "Falaise" | Park == "Falaise_Reference")
+
  Falaise_all <- subset(falaise_subset, DayTime == "Day")
  
  Falaise_all_summary <- Falaise_all %>%
@@ -17,6 +19,7 @@
    ggtitle("Falaise_ALL")+
    facet_wrap(~Sensor_Name)
  
+
  # Falaise_subset <- subset(edited_temp_data, Park == "Falaise" | Park == "Falaise_Reference") 
  # 
  # Falaise_1 <- subset(falaise_subset, Sensor_Name == "Falaise_1")
@@ -35,6 +38,9 @@
  
 
 ## CdesP
+ 
+ CdesP_subset <- subset(edited_temp_data, Park == "CdesP" | Park == "CdesP_Reference") 
+ 
  
  CdesP_all <- subset(CdesP_subset, DayTime == "Day")
  
