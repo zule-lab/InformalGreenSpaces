@@ -27,15 +27,15 @@ falaise_simpleSE_plot <- falaise_simpleSE_summarized %>%
    geom_point(size = 4)+ 
   geom_errorbar(aes(ymin=meanT-SE, ymax=meanT+SE), width=0.25, linewidth=1.25)+ #code for the error bars, specified by taking the mean +/- the SE
   geom_label_repel(data = falaise_simpleSE_summarized, aes(y=meanT, label= round(meanT,1), fill = factor(Park), size=5), 
-                   fontface = 'bold', color = 'white', force=100, segment.color="black", segment.size=1, show.legend = F) + #geom_label_repel function puts a label with the specified information (from a data frame) 
-  #Tip: Put repel labels AFTER the code for the points and error bars makes it so the labels appear above the data (unobstructed)!
+                   fontface = 'bold', color = 'white', force=50, segment.color="black", segment.size=1, show.legend = F, min.segment.length = 0) + #geom_label_repel function puts a label with the specified information (from a data frame) 
+  #Tip: Put repel labels AFTER the code for the points and error bars makes it so the labels appear above the data (unobstructed)! (I am silly and had no idea this worked liked this lol)
   scale_color_manual(values = c("forestgreen", "gray48")) + #Manually specifying the colours we want will make both the label and point colours be cohesive
-  scale_fill_manual(values = c("forestgreen", "gray48")) + #Manually specifying the colours we want will make both the label and point colours be cohesive
+  scale_fill_manual(values = c("forestgreen", "gray48")) + 
   theme_classic(base_size = 15)+ #increases the base size of all text 
-  theme(strip.text = element_text(size= 18, face="bold", colour = "black"), 
-        strip.background = element_rect(fill = "yellowgreen"),
-        panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
-        legend.position = "none")+
+  theme(strip.text = element_text(size= 18, face="bold", colour = "black"), #size and colour of text of the facet strip on top of graphs
+        strip.background = element_rect(fill = "yellowgreen"), #colour of the facet strip on top of graphs 
+        panel.border = element_rect(colour = "black", fill=NA, linewidth = 1), #add panel border colour to box off the plots
+        legend.position = "none")+ #removes legend
   labs(x ="Sensor Type", y ="Mean Temperature (°C)") +
   facet_wrap(vars(DayTime))
 
@@ -60,7 +60,7 @@ falaise_simpleSE_allsensors_plot <- falaise_allsensors_simpleSE_summary %>%
   geom_point(size = 4)+ 
   geom_errorbar(aes(ymin=meanT-SE, ymax=meanT+SE), width=.5, linewidth=1.5)+ #code for the error bars, specified by taking the mean +/- the SE
   geom_label_repel(data = falaise_allsensors_simpleSE_summary, aes(y=meanT, label= round(meanT,1), fill = factor(Sensor_Name), size=5), 
-                   fontface = 'bold', color = 'white', show.legend = F, force=100, segment.color="black", segment.size=1 ) + #geom_label_repel function puts a label with the specified information (from a data frame) 
+                   fontface = 'bold', color = 'white', show.legend = F, force=50, segment.color="black", segment.size=1, min.segment.length = 0 ) + #geom_label_repel function puts a label with the specified information (from a data frame) 
   #Tip: Put repel labels AFTER the code for the points and error bars makes it so the labels appear above the data (unobstructed)!
   scale_color_manual(values = c('#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + #Manually specifying the colours we want will make both the label and point colours be cohesive
   scale_fill_manual(values = c('#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + #Manually specifying the colours we want will make both the label and point colours be cohesive
@@ -98,14 +98,14 @@ MHM_simpleSE_plot <- MHM_simpleSE_summary %>%
   geom_errorbar(aes(ymin=meanT-SE, ymax=meanT+SE), width=.5, linewidth=1.5, 
                 position=position_dodge(0.05))+ 
   geom_label_repel(data = MHM_simpleSE_summary, aes(y=meanT, label= round(meanT,1), fill = factor(Park), size=5), 
-                   fontface = 'bold', color = 'white', show.legend = F, segment.color="black", segment.size=1 ) + 
+                   fontface = 'bold', color = 'white', show.legend = F, force = 50, segment.color="black", segment.size=1, min.segment.length = 0 ) + 
   scale_color_manual(values = c("forestgreen", "gray48")) + 
   scale_fill_manual(values = c("forestgreen", "gray48")) + 
   theme_classic(base_size = 20)+ 
   theme(strip.text = element_text(size= 20, face="bold", colour = "black"), 
         strip.background = element_rect(fill = "yellowgreen"),
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
-        legend.position = "none")+
+        legend.position = "none", axis.text.x=element_text(angle = 45, hjust =1))+
   labs(x ="Sensor Type", y ="Mean Temperature (°C)") +
   facet_wrap(vars(DayTime))
 
@@ -132,7 +132,7 @@ MHM_simpleSE_allsensors_plot <- MHM_allsensors_simpleSE_summary %>%
   geom_point(size = 4)+ 
   geom_errorbar(aes(ymin=meanT-SE, ymax=meanT+SE), width=.5, linewidth=1.5)+ 
   geom_label_repel(data = MHM_allsensors_simpleSE_summary, aes(y=meanT, label= round(meanT,1), fill = factor(Sensor_Name), size=5), 
-                   fontface = 'bold', color = 'white', show.legend = F, force=100, segment.color="black", segment.size=1 ) + 
+                   fontface = 'bold', color = 'white', show.legend = F, force=50, segment.color="black", segment.size=1, min.segment.length = 0) + 
   scale_fill_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#8100CC', '#BBBBBB')) + 
   scale_color_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#8100CC', '#BBBBBB')) +
   theme_classic(base_size = 20)+ #increases the base size of all text 
@@ -168,7 +168,7 @@ CdesP_simpleSE_plot <- CdesP_simpleSE_summarized %>%
   geom_point(size = 4)+ 
   geom_errorbar(aes(ymin=meanT-SE, ymax=meanT+SE), width=0.25, linewidth=1.25)+ 
   geom_label_repel(data = CdesP_simpleSE_summarized, aes(y=meanT, label= round(meanT,1), fill = factor(Park), size=5), 
-                   fontface = 'bold', color = 'white', force=100, segment.color="black", segment.size=1, show.legend = F) + 
+                   fontface = 'bold', color = 'white', force=100, segment.color="black", segment.size=1, show.legend = F, min.segment.length = 0) + 
   scale_color_manual(values = c("forestgreen", "gray48")) + 
   scale_fill_manual(values = c("forestgreen", "gray48")) + 
   theme_classic(base_size = 15)+  
@@ -200,7 +200,7 @@ CdesP_simpleSE_allsensors_plot <- CdesP_allsensors_simpleSE_summary %>%
   geom_point(size = 4)+ 
   geom_errorbar(aes(ymin=meanT-SE, ymax=meanT+SE), width=.5, linewidth=1.5)+ 
   geom_label_repel(data = CdesP_allsensors_simpleSE_summary, aes(y=meanT, label= round(meanT,1), fill = factor(Sensor_Name), size=5), 
-                   fontface = 'bold', color = 'white', show.legend = F, force=100, segment.color="black", segment.size=1 ) + 
+                   fontface = 'bold', color = 'white', show.legend = F, force=70, segment.color="black", segment.size=1, min.segment.length = 0) + 
   scale_color_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB', '#000000')) + 
   scale_fill_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB', '#000000')) +
   theme_classic(base_size = 20)+ #increases the base size of all text 
@@ -236,7 +236,7 @@ TP_simpleSE_plot <- TP_simpleSE_summarized %>%
   geom_point(size = 4)+ 
   geom_errorbar(aes(ymin=meanT-SE, ymax=meanT+SE), width=0.25, linewidth=1.25)+ 
   geom_label_repel(data = TP_simpleSE_summarized, aes(y=meanT, label= round(meanT,1), fill = factor(Park), size=5), 
-                   fontface = 'bold', color = 'white', force=100, segment.color="black", segment.size=1, show.legend = F) + 
+                   fontface = 'bold', color = 'white', force=100, segment.color="black", segment.size=1, show.legend = F, min.segment.length = 0) + 
   scale_color_manual(values = c("forestgreen", "gray48")) + 
   scale_fill_manual(values = c("forestgreen", "gray48")) + 
   theme_classic(base_size = 15)+  
@@ -268,7 +268,7 @@ TP_simpleSE_allsensors_plot <- TP_allsensors_simpleSE_summary %>%
   geom_point(size = 4)+ 
   geom_errorbar(aes(ymin=meanT-SE, ymax=meanT+SE), width=.5, linewidth=1.5)+ 
   geom_label_repel(data = TP_allsensors_simpleSE_summary, aes(y=meanT, label= round(meanT,1), fill = factor(Sensor_Name), size=5), 
-                   fontface = 'bold', color = 'white', show.legend = F, force=100, segment.color="black", segment.size=1 ) + 
+                   fontface = 'bold', color = 'white', show.legend = F, force=100, segment.color="black", segment.size=1, min.segment.length = 0) + 
   scale_fill_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
   scale_color_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) +
   theme_classic(base_size = 20)+ #increases the base size of all text 
