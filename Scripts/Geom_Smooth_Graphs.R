@@ -51,7 +51,7 @@ labeled_falaise_smooth_plot <- falaise_subset %>% #plotting the graph
   
 labeled_falaise_smooth_plot
 
-#ggsave("Falaise_Smooth_Plot.png", plot=labeled_falaise_smooth_plot_changed, path = "Graphics", dpi = 500, width = 25, height = 15, units = "cm")
+#ggsave("Falaise_Smooth_Plot.png", plot=labeled_falaise_smooth_plot, path = "Graphics", dpi = 600, width = 25, height = 15, units = "cm")
 #Use the code above so save this graph 
 
 ##
@@ -119,7 +119,7 @@ labeled_falaise_allsensors_plot <- falaise_allsensors_summary %>%
 
 labeled_falaise_allsensors_plot
 
-#ggsave("Falaise_All_Sensors_Smooth_Plot.png", plot=labeled_falaise_allsensors_plot, path = "Graphics", dpi = 500, width = 35, height = 20, units = "cm")
+#ggsave("Falaise_All_Sensors_Smooth_Plot.png", plot=labeled_falaise_allsensors_plot, path = "Graphics", dpi = 600, width = 35, height = 20, units = "cm")
 
 
 #####
@@ -162,7 +162,7 @@ labeled_MHM_smooth_plot <- MHM_subset %>%
 
 labeled_MHM_smooth_plot
 
-#ggsave("MHM_Smooth_Plot.png", plot=labeled_MHM_smooth_plot_changed, path = "Graphics", dpi = 500, width = 25, height = 15, units = "cm")
+#ggsave("MHM_Smooth_Plot.png", plot=labeled_MHM_smooth_plot, path = "Graphics", dpi = 600, width = 25, height = 15, units = "cm")
 
 ##
 
@@ -270,7 +270,7 @@ MHM_ParkSubTypes_plot <- parksubtypes_combined %>%
   
 MHM_ParkSubTypes_plot
 
-#ggsave("MHM_ParkSubType_Smooth_Plot.png", plot=MHM_ParkSubTypes_plot, path = "Graphics", dpi = 500, width = 35, height = 20, units = "cm")
+#ggsave("MHM_ParkSubType_Smooth_Plot.png", plot=MHM_ParkSubTypes_plot, path = "Graphics", dpi = 600, width = 35, height = 20, units = "cm")
 
 ##
 
@@ -314,7 +314,7 @@ labeled_MHM_allsensors_plot <- MHM_allsensors_summary %>%
 
 labeled_MHM_allsensors_plot
 
-#ggsave("MHM_All_Sensors_Smooth_Plot.png", plot=labeled_MHM_allsensors_plot, path = "Graphics", dpi = 500, width = 35, height = 20, units = "cm")
+#ggsave("MHM_All_Sensors_Smooth_Plot.png", plot=labeled_MHM_allsensors_plot, path = "Graphics", dpi = 600, width = 35, height = 20, units = "cm")
 
 #####
 
@@ -356,7 +356,7 @@ labeled_CdesP_smooth_plot <- CdesP_subset %>%
 
 labeled_CdesP_smooth_plot
 
-#ggsave("CdesP_Smooth_Plot.png", plot=labeled_CdesP_smooth_plot_changed, path = "Graphics", dpi = 500, width = 25, height = 15, units = "cm")
+#ggsave("CdesP_Smooth_Plot.png", plot=labeled_CdesP_smooth_plot, path = "Graphics", dpi = 600, width = 25, height = 15, units = "cm")
 
 ##
 
@@ -422,7 +422,7 @@ labeled_CdesP_allsensors_plot <- CdesP_allsensors_summary %>%
 
 labeled_CdesP_allsensors_plot
 
-#ggsave("CdesP_All_Sensors_Smooth_Plot.png", plot=labeled_CdesP_allsensors_plot, path = "Graphics", dpi = 500, width = 35, height = 20, units = "cm")
+#ggsave("CdesP_All_Sensors_Smooth_Plot.png", plot=labeled_CdesP_allsensors_plot, path = "Graphics", dpi = 600, width = 35, height = 20, units = "cm")
 
 
 #####
@@ -468,7 +468,7 @@ labeled_TP_smooth_plot <- TP_subset %>%
 
 labeled_TP_smooth_plot 
 
-#ggsave("TP_Smooth_Plot.png", plot=labeled_TP_smooth_plot, path = "Graphics", dpi = 500, width = 25, height = 15, units = "cm")
+#ggsave("TP_Smooth_Plot.png", plot=labeled_TP_smooth_plot, path = "Graphics", dpi = 600, width = 25, height = 15, units = "cm")
 
 ##
 
@@ -533,4 +533,4 @@ labeled_TP_allsensors_plot <- TP_allsensors_summary %>%
 
 labeled_TP_allsensors_plot
 
-#ggsave("TP_All_Sensors_Smooth_Plot.png", plot=labeled_TP_allsensors_plot, path = "Graphics", dpi = 500, width = 25, height = 15, units = "cm")
+#ggsave("TP_All_Sensors_Smooth_Plot.png", plot=labeled_TP_allsensors_plot, path = "Graphics", dpi = 600, width = 35, height = 20, units = "cm")

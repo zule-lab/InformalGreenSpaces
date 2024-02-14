@@ -42,7 +42,7 @@ falaise_simple_plot <- falaise_simple_summarized %>%
 
 falaise_simple_plot
 
-#ggsave("Falaise_Simple_Plot.tiff", plot=falaise_simple_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")
+#ggsave("Falaise_Simple_Plot.png", plot=falaise_simple_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")
 
 ##
 
@@ -76,7 +76,7 @@ falaise_simple_allsensors_plot <- falaise_allsensors_simple_summary %>%
 
 falaise_simple_allsensors_plot
 
-#ggsave("Falaise_Simple_AllSensors_Plot.tiff", plot=falaise_simple_allsensors_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")
+#ggsave("Falaise_Simple_AllSensors_Plot.png", plot=falaise_simple_allsensors_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")
 
 #####
 
@@ -113,7 +113,7 @@ MHM_simple_plot <- MHM_simple_summarized %>%
 
 MHM_simple_plot
 
-#ggsave("MHM_Simple_Plot.tiff", plot=MHM_simple_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")
+#ggsave("MHM_Simple_Plot.png", plot=MHM_simple_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")
 
 ##
 
@@ -146,7 +146,7 @@ MHM_simple_allsensors_plot <- MHM_allsensors_simple_summary %>%
 
 MHM_simple_allsensors_plot
 
-#ggsave("MHM_Simple_AllSensors_Plot.tiff", plot=MHM_simple_allsensors_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")
+#ggsave("MHM_Simple_AllSensors_Plot.png", plot=MHM_simple_allsensors_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")
 
 #####
 
@@ -182,7 +182,7 @@ CdesP_simple_plot <- CdesP_simple_summarized %>%
 
 CdesP_simple_plot
 
-#ggsave("CdesP_Simple_Plot.tiff", plot=CdesP_simple_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")
+#ggsave("CdesP_Simple_Plot.png", plot=CdesP_simple_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")
 
 ##
 
@@ -215,7 +215,7 @@ CdesP_simple_allsensors_plot <- CdesP_allsensors_simple_summary %>%
 
 CdesP_simple_allsensors_plot
 
-#ggsave("CdesP_Simple_AllSensors_Plot.tiff", plot=CdesP_simple_allsensors_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")
+#ggsave("CdesP_Simple_AllSensors_Plot.png", plot=CdesP_simple_allsensors_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")
 
 #####
 
@@ -250,7 +250,7 @@ TP_simple_plot <- TP_simple_summarized %>%
 
 TP_simple_plot
 
-#ggsave("TP_Simple_Plot.tiff", plot=TP_simple_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")
+#ggsave("TP_Simple_Plot.png", plot=TP_simple_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")
 
 ##
 
@@ -283,4 +283,4 @@ TP_simple_allsensors_plot <- TP_allsensors_simple_summary %>%
 
 TP_simple_allsensors_plot
 
-#ggsave("TP_Simple_AllSensors_Plot.tiff", plot=TP_simple_allsensors_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")
+#ggsave("TP_Simple_AllSensors_Plot.png", plot=TP_simple_allsensors_plot, path = "Graphics", dpi = 600, width = 20, height = 15, units = "cm")

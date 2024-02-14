@@ -64,7 +64,7 @@ MHM__hot_Sep_Simple_Plot_changed <- MHM__hot_Sep_Simple_Plot + scale_color_manua
 
 MHM__hot_Sep_Simple_Plot_changed
 
-#ggsave("TP_All_Sensors_SimplePlot.tiff", path = "Graphics", dpi = 600, width = 35, height = 20, units = "cm")
+#ggsave("TP_All_Sensors_SimplePlot.png", path = "Graphics", dpi = 600, width = 35, height = 20, units = "cm")
 
 #not really interesting.. seems like on the really hot days it was just hot everywhere
 
@@ -107,7 +107,7 @@ park_hottest_plot <- park_hottest_summarized %>%
 
 park_hottest_plot
 
-#ggsave("Hottest_Roughdraft.tiff", path = "Graphics", dpi = 600, width = 35, height = 20, units = "cm")
+#ggsave("Hottest_Roughdraft.png", path = "Graphics", dpi = 600, width = 35, height = 20, units = "cm")
 
 #very interesting looking plot but again shows pretty much the same thing, everything is very hot! 
 
@@ -138,14 +138,14 @@ july6_falaise_sum <- july6_falaise %>%
 july6_falaise_plot <- july6_falaise_sum %>%
   ggplot()+
   (aes(x= Time, y= meanT, colour = Park))+
-  geom_line()+
+  geom_line(linewidth=2)+
   theme_classic() + 
   labs(x= "Time (Hour)", y= "Mean Hourly Temperature (°C)", title = "Falaise - July 6th") +
   theme(legend.position = "bottom", legend.background = element_rect("white"), legend.title = element_blank(), legend.box.background = element_rect(colour = "black", linewidth = 1)) 
 
 july6_falaise_plot
 
-#ggsave("Falaise_July6_Unfinished.tiff", path = "Graphics", dpi = 600, width = 20, height = 20, units = "cm")
+#ggsave("Falaise_July6_Unfinished.png", path = "Graphics", dpi = 600, width = 20, height = 20, units = "cm")
 
 
 ##MHM##
@@ -160,14 +160,14 @@ july6_MHM_sum <- july6_MHM %>%
 july6_MHM_plot <- july6_MHM_sum %>%
   ggplot()+
   (aes(x= Time, y= meanT, colour = Park))+
-  geom_line()+
+  geom_line(linewidth=2)+
   theme_classic() + 
   labs(x= "Time (Hour)", y= "Mean Hourly Temperature (°C)", title = "MHM - July 6th") +
   theme(legend.position = "bottom", legend.background = element_rect("white"), legend.title = element_blank(), legend.box.background = element_rect(colour = "black", linewidth = 1)) 
 
 july6_MHM_plot
 
-#ggsave("MHM_July6_Unfinished.tiff", path = "Graphics", dpi = 600, width = 20, height = 20, units = "cm")
+#ggsave("MHM_July6_Unfinished.png", path = "Graphics", dpi = 600, width = 20, height = 20, units = "cm")
 
 
 ##CdesP##
@@ -182,14 +182,14 @@ july6_CdesP_sum <- july6_CdesP %>%
 july6_CdesP_plot <- july6_CdesP_sum %>%
   ggplot()+
   (aes(x= Time, y= meanT, colour = Park))+
-  geom_line()+
+  geom_line(linewidth=2)+
   theme_classic() + 
   labs(x= "Time (Hour)", y= "Mean Hourly Temperature (°C)", title = "CdesP - July 6th") +
   theme(legend.position = "bottom", legend.background = element_rect("white"), legend.title = element_blank(), legend.box.background = element_rect(colour = "black", linewidth = 1)) 
 
 july6_CdesP_plot
 
-#ggsave("CdesP_July6_Unfinished.tiff", path = "Graphics", dpi = 600, width = 20, height = 20, units = "cm")
+#ggsave("CdesP_July6_Unfinished.png", path = "Graphics", dpi = 600, width = 20, height = 20, units = "cm")
 
 
 ##TP##
@@ -204,13 +204,13 @@ july6_TP_sum <- july6_TP %>%
 july6_TP_plot <- july6_TP_sum %>%
   ggplot()+
   (aes(x= Time, y= meanT, colour = Park))+
-  geom_line()+
+  geom_line(linewidth=2)+
   theme_classic() + 
   labs(x= "Time (Hour)", y= "Mean Hourly Temperature (°C)", title = "TP - July 6th") +
   theme(legend.position = "bottom", legend.background = element_rect("white"), legend.title = element_blank(), legend.box.background = element_rect(colour = "black", linewidth = 1)) 
 
 july6_TP_plot
 
-#ggsave("TP_July6_Unfinished.tiff", path = "Graphics", dpi = 600, width = 20, height = 20, units = "cm")
+#ggsave("TP_July6_Unfinished.png", path = "Graphics", dpi = 600, width = 20, height = 20, units = "cm")
 
 

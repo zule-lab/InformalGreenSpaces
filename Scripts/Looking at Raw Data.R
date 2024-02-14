@@ -79,7 +79,7 @@ falaise_subset <- subset(edited_temp_data, Park == "Falaise" | Park == "Falaise_
  
  MHM_all <- subset(MHM_subset, DayTime == "Day")
  
- MHM_all_summary <- MHM_4 %>%
+ MHM_all_summary <- MHM_all %>%
    group_by(Date, Sensor_Name) %>%
    summarize(meanT = mean(Temperature))
  
@@ -88,7 +88,7 @@ falaise_subset <- subset(edited_temp_data, Park == "Falaise" | Park == "Falaise_
    geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5, aes(x = Date, y = meanT,)) +
    geom_line(aes(x=Date , y= meanT))+
    theme_classic()+
-   ggtitle("MHM_4")+
+   ggtitle("MHM_ALL")+
    facet_wrap(~Sensor_Name)
  
  ### TP
