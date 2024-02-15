@@ -117,6 +117,79 @@ MHM_simpleSE_plot
 
 ##
 
+# Investigating the MHM in its 3 subsets
+
+MHM_subset <- subset(edited_temp_data, Park == "MHM" | Park == "MHM_Reference") 
+
+#Friche
+Friche_data <- subset(MHM_subset, Sensor_Name == "MHM_4" | Sensor_Name == "MHM_3")
+#Making subsets for each location and then giving them a park sub type, I'm sure there is a better way
+#of doing this that is more efficient but this is what I've done lol
+
+Friche_data_summarized <- Friche_data %>%
+  group_by(DayTime, Park) %>%
+  summarize(meanT = mean(Temperature),
+            SE = std.error(Temperature, na.rm = TRUE)) %>%
+  mutate(Park_Sub_Type = "Friche")
+
+##Boise Vimont
+Boise_Vimont_data <- subset(MHM_subset, Sensor_Name == "MHM_1" | Sensor_Name == "MHM_2")
+
+Boise_Vimont_summarized <- Boise_Vimont_data %>%
+  group_by(DayTime, Park) %>%
+  summarize(meanT = mean(Temperature),
+            SE = std.error(Temperature, na.rm = TRUE)) %>%
+  mutate(Park_Sub_Type = "Boise_Vimont")
+
+##Boise Steinberg
+Boise_Steinberg_data <- subset(MHM_subset, Sensor_Name == "MHM_5" | Sensor_Name == "MHM_6" | Sensor_Name == "MHM_7")
+
+Boise_Steinberg_summarized <- Boise_Steinberg_data %>%
+  group_by(DayTime, Park) %>%
+  summarize(meanT = mean(Temperature),
+            SE = std.error(Temperature, na.rm = TRUE)) %>%
+  mutate(Park_Sub_Type = "Boise_Steinberg")
+
+##REFERENCE
+MHM_Reference_data <- subset(MHM_subset, Sensor_Name == "MHM_Reference")
+
+MHM_Reference_summarized <- MHM_Reference_data %>%
+  group_by(DayTime, Park) %>%
+  summarize(meanT = mean(Temperature),
+            SE = std.error(Temperature, na.rm = TRUE)) %>%
+  mutate(Park_Sub_Type = "Reference")
+
+
+#Combine these
+
+parksubtypes_combined <- rbind(Friche_data_summarized, Boise_Vimont_summarized, Boise_Steinberg_summarized, MHM_Reference_summarized)
+
+#finally plot everything
+
+MHM_ParkSubTypes_SimpleSE_plot <- parksubtypes_combined %>%
+  ggplot() +
+  aes(x=Park_Sub_Type , y= meanT, colour = Park_Sub_Type) +
+  geom_point(size = 4)+ 
+  geom_errorbar(aes(ymin=meanT-SE, ymax=meanT+SE), width=.5, linewidth=1.5, 
+                position=position_dodge(0.05))+ 
+  geom_label_repel(data = parksubtypes_combined,aes(y=meanT, label= round(meanT,1), fill = factor(Park_Sub_Type), size=5), 
+                   fontface = 'bold', color = 'white', show.legend = F, force = 100, segment.color="black", segment.size=1, min.segment.length = 0 ) + 
+  scale_color_manual(values = c( '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
+  scale_fill_manual(values = c('#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
+  theme_classic(base_size = 20)+ 
+  theme(strip.text = element_text(size= 20, face="bold", colour = "black"), 
+        strip.background = element_rect(fill = "yellowgreen"),
+        panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
+        legend.position = "none", axis.text.x=element_text(angle = 45, hjust =1))+
+  labs(x ="Sensor Type", y ="Mean Temperature (°C)") +
+  facet_wrap(vars(DayTime))
+
+MHM_ParkSubTypes_SimpleSE_plot
+
+#ggsave("MHM_ParkSubTypes_SimpleSE_plot.png", plot=MHM_ParkSubTypes_SimpleSE_plot, path = "Graphics", dpi = 600, width = 20, height = 25, units = "cm")
+
+##
+
 #Investigating each sensor in the park individually now 
 
 MHM_subset <- subset(edited_temp_data, Park == "MHM" | Park == "MHM_Reference")
