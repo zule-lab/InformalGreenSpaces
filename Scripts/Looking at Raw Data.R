@@ -57,14 +57,14 @@ falaise_subset <- subset(edited_temp_data, Park == "Falaise" | Park == "Falaise_
    facet_wrap(~Sensor_Name)
  
  
-# CdesP_subset <- subset(edited_temp_data, Park == "CdesP" | Park == "CdesP_Reference") 
-#  
+# CdesP_subset <- subset(edited_temp_data, Park == "CdesP" | Park == "CdesP_Reference")
+# 
 #  CdesP_2 <- subset(CdesP_subset, Sensor_Name == "CdesP_2")
-#  
+# 
 #  CdesP_2_summary <- CdesP_2 %>%
 #    group_by(Date, DayTime) %>%
 #    summarize(meanT = mean(Temperature))
-#  
+# 
 #  CdesP_2_summary %>%
 #    ggplot()+
 #    geom_smooth(method = "loess", span=.7, se=F, linewidth=2.5, aes(x = Date, y = meanT,)) +
@@ -72,7 +72,7 @@ falaise_subset <- subset(edited_temp_data, Park == "Falaise" | Park == "Falaise_
 #    theme_classic()+
 #    ggtitle("CdesP_2")
 #    facet_wrap(~DayTime)
- 
+#  
 ### MHM
  
  MHM_subset <- subset(edited_temp_data, Park == "MHM" | Park == "MHM_Reference") 
