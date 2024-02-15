@@ -28,13 +28,13 @@ falaise_subset %>%
 
 falaise_sm_max = falaise_subset %>% #creating a data set with the max values of the smooth model 
   group_by(Park, DayTime) %>%
-  mutate(smooth =predict(loess(meanT ~ as.numeric(Date), span=.50))) %>% #span kept at .5 unless data fits better with different spans (visually clearer)
+  mutate(smooth =predict(loess(meanT ~ as.numeric(Date), span=.60))) %>% #span kept at .5 unless data fits better with different spans (visually clearer)
   slice_max(order_by = smooth) %>% #extracting the max values 
   distinct(smooth, .keep_all =  T) 
 
 labeled_falaise_smooth_plot <- falaise_subset %>% #plotting the graph 
   ggplot(combined, mapping = aes(Date, meanT, group = Park, color = Park)) +
-  geom_smooth(method = "loess", span=.50, se=F, linewidth=2.5) + #span kept at 0.5 since it fit the data better and made the graphs the smoothest 
+  geom_smooth(method = "loess", span=.60, se=F, linewidth=2.5) + #span kept at 0.5 since it fit the data better and made the graphs the smoothest 
   geom_label_repel(data = falaise_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
                    fontface = 'bold', color = 'white', show.legend = F, segment.color="black", segment.size=1, min.segment.length = 0) + 
   #Tip: Put repel labels AFTER the code for the smooth function makes it so the labels appear over the data (not hidden behind)!
@@ -140,13 +140,13 @@ MHM_subset %>%
 
 MHM_sm_max = MHM_subset %>% 
   group_by(Park, DayTime) %>%
-  mutate(smooth =predict(loess(meanT ~ as.numeric(Date), span=.55))) %>%
+  mutate(smooth =predict(loess(meanT ~ as.numeric(Date), span=.6))) %>%
   slice_max(order_by = smooth) %>%
   distinct(smooth, .keep_all =  T)
 
 labeled_MHM_smooth_plot <- MHM_subset %>% 
   ggplot(combined, mapping = aes(Date, meanT, group = Park, color = Park)) +
-  geom_smooth(method = "loess", span=.55, se=F, linewidth=2.5) +  
+  geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +  
   geom_label_repel(data = MHM_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
                    fontface = 'bold', color = 'white', show.legend = F, force=50, segment.color="black", segment.size=1, min.segment.length = 0) + 
   theme_classic(base_size = 15) + 
@@ -246,14 +246,14 @@ parksubtypes_combined %>%
 #create the smooth and retain rows with max of smooth, using slice_max
 parksubtypes_sm_max = parksubtypes_combined %>% 
   group_by(Park_Sub_Type, DayTime) %>%
-  mutate(smooth =predict(loess(meanT ~ as.numeric(Date), span=.5))) %>%
+  mutate(smooth =predict(loess(meanT ~ as.numeric(Date), span=.6))) %>%
   slice_max(order_by = smooth) %>%
   distinct(smooth, .keep_all =  T)
 
 #finally plot everything
 MHM_ParkSubTypes_plot <- parksubtypes_combined %>%
   ggplot(combined, mapping = aes(Date, meanT, group = Park_Sub_Type, color = Park_Sub_Type)) +
-  geom_smooth(method = "loess", span=.5, se=F, linewidth=2.5) +
+  geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +
   #geom_label_repel(data = sm_max, aes(y=smooth, label= round(smooth,1), color = Park_Sub_Type)) + 
   geom_label_repel(data = parksubtypes_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park_Sub_Type), size = 5), 
                    fontface = 'bold', color = 'white', show.legend = F, force=50, segment.color="black", segment.size=1, min.segment.length = 0) + 
@@ -334,13 +334,13 @@ CdesP_subset %>%
 
 CdesP_sm_max = CdesP_subset %>% 
   group_by(Park, DayTime) %>%
-  mutate(smooth =predict(loess(meanT ~ as.numeric(Date), span=.7))) %>%
+  mutate(smooth =predict(loess(meanT ~ as.numeric(Date), span=.6))) %>%
   slice_max(order_by = smooth) %>%
   distinct(smooth, .keep_all = T)
 
 labeled_CdesP_smooth_plot <- CdesP_subset %>% 
   ggplot(combined, mapping = aes(Date, meanT, group = Park, color = Park)) +
-  geom_smooth(method = "loess", span=.7, se=F, linewidth=2.5) +  
+  geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +  
   geom_label_repel(data = CdesP_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
                    fontface = 'bold', color = 'white', show.legend = F, force=10, segment.color="black", segment.size=1, min.segment.length = 0) + 
   theme_classic(base_size = 15) + 
@@ -431,9 +431,9 @@ labeled_CdesP_allsensors_plot
                                   ## TP ##
                                   ########
 
-TP_subset <- subset(summarized, Park == "TP" | Park == "TP_Reference")
-
 ###WITH TAGS###
+
+TP_subset <- subset(summarized, Park == "TP" | Park == "TP_Reference")
 
 TP_subset %>%
   group_by(Park) %>%
@@ -445,13 +445,13 @@ TP_subset %>%
 
 TP_sm_max = TP_subset %>% 
   group_by(Park, DayTime) %>%
-  mutate(smooth =predict(loess(meanT ~ as.numeric(Date), span=.55))) %>%
+  mutate(smooth =predict(loess(meanT ~ as.numeric(Date), span=.6))) %>%
   slice_max(order_by = smooth) %>%
   distinct(smooth, .keep_all =  T)
 
 labeled_TP_smooth_plot <- TP_subset %>% 
   ggplot(combined, mapping = aes(Date, meanT, group = Park, color = Park)) +
-  geom_smooth(method = "loess", span=.55, se=F, linewidth=2.5) +  
+  geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +  
   geom_label_repel(data = TP_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
                    fontface = 'bold', color = 'white', show.legend = F, force=10, segment.color="black", segment.size=1, min.segment.length = 0) + 
   theme_classic(base_size = 15) + 

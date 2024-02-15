@@ -32,7 +32,7 @@ c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#8100CC', '
 
 ##### ENGLISH #####
 
-temperature_data <- read.csv("Input/Compiled_Data2023.csv")
+temperature_data <- read.csv("Input/Compiled_Data2023_2.csv")
 #View(temperature_data)
 
 ##Editing the data to make the data frame that will be used for analysis 
