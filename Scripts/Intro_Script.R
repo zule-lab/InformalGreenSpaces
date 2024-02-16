@@ -32,6 +32,9 @@ c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#8100CC', '
 
 ##### ENGLISH #####
 
+#This code sets the base language of R to something, in this case English if you are in French
+Sys.setlocale(category = "LC_ALL", "English")
+
 temperature_data <- read.csv("Input/Compiled_Data2023_2.csv")
 #View(temperature_data)
 
@@ -53,7 +56,12 @@ summarized <- edited_temp_data %>%
 
 ##### FRENCH #####
 
-temperature_data_french <- read.csv("Input/Compiled_Data2023.csv")
+#This code sets the base language of R to something, in this case french for the french graphs
+Sys.setlocale(category = "LC_ALL", "French")
+
+guess_encoding("Input/Compiled_Data2023_French.csv") #Needed to obtain the type of encoding needed to make the accented e's work
+
+temperature_data_french <- read.csv("Input/Compiled_Data2023_French.csv", encoding = "ASCII-1") #ASCII-1 is the encoding type gotten from above
 
 
 edited_temp_data_F <- temperature_data_french %>%
