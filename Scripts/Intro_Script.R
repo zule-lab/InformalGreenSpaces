@@ -22,6 +22,7 @@ library("gghighlight")
 library("ggrepel")
 library("mgcv")
 library("plotrix")
+library("readr")
 
 #The following colour codes is the colourblind-friendly palette I've compiled for this project 
 #the last two colours I've reserved for reference sensors, the other are used for the park sensors if there are multiple displayed on one graph

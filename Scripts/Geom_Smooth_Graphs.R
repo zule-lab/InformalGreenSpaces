@@ -7,8 +7,7 @@
                                #############
                                ## FALAISE ##
                                #############
-#This code sets the base language of R to something, in this case English if you are in French
-Sys.setlocale(category = "LC_ALL", "English")
+
 
 falaise_subset <- subset(summarized, Park == "Falaise" | Park == "Falaise_Reference") 
 #Need a subset of data to work with that just includes the Falaise and it's reference
@@ -20,7 +19,7 @@ falaise_subset <- subset(summarized, Park == "Falaise" | Park == "Falaise_Refere
 
 falaise_subset %>%
   group_by(Park) %>% #grouping it by park to separate reference and non-reference data
-  mutate(is_max = meanT == max(meanT)) %>% #need max to create the repel lables 
+  mutate(is_max = meanT == max(meanT)) %>% #need max to create the repel labels 
   ggplot(mapping = aes(Date, meanT, color = Park, fill = Park)) + #create the smooth model to extract max
   geom_smooth(method = "loess") + 
   geom_point(size = 3) +
@@ -201,23 +200,23 @@ Friche_data_summarized <- Friche_data %>%
   mutate(Park_Sub_Type = "Friche")
 
 
-##Boise Vimont
+##Boisé Vimont
 Boise_Vimont_data <- subset(MHM_sensor_subset_investigation, Sensor_Name == "MHM_1" | Sensor_Name == "MHM_2")
 
 Boise_Vimont_summarized <- Boise_Vimont_data %>%
   group_by(DayTime, Park, Date) %>%
   summarize(meanT = mean(Temperature),
             maxT = max(Temperature)) %>%
-  mutate(Park_Sub_Type = "Boise_Vimont")
+  mutate(Park_Sub_Type = "Boisé_Vimont")
 
-##Boise Steinberg
+##Boisé Steinberg
 Boise_Steinberg_data <- subset(MHM_sensor_subset_investigation, Sensor_Name == "MHM_5" | Sensor_Name == "MHM_6" | Sensor_Name == "MHM_7")
 
 Boise_Steinberg_summarized <- Boise_Steinberg_data %>%
   group_by(DayTime, Park, Date) %>%
   summarize(meanT = mean(Temperature),
             maxT = max(Temperature)) %>%
-  mutate(Park_Sub_Type = "Boise_Steinberg")
+  mutate(Park_Sub_Type = "Boisé_Steinberg")
 
 ##REFERENCE
 MHM_Reference_data <- subset(MHM_sensor_subset_investigation, Sensor_Name == "MHM_Reference")
@@ -231,7 +230,7 @@ MHM_Reference_summarized <- MHM_Reference_data %>%
 
 #Combine these
 
-parksubtypes_combined <- rbind(Friche_data_summarized, Boise_Vimont_summarized, Boise_Steinberg_summarized, MHM_Reference_summarized)
+parksubtypes_combined <- rbind(Friche_data_summarized, Boisé_Vimont_summarized, Boisé_Steinberg_summarized, MHM_Reference_summarized)
 
 
 #Plotting geom_smooth
@@ -256,7 +255,7 @@ MHM_ParkSubTypes_plot <- parksubtypes_combined %>%
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +
   #geom_label_repel(data = sm_max, aes(y=smooth, label= round(smooth,1), color = Park_Sub_Type)) + 
   geom_label_repel(data = parksubtypes_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park_Sub_Type), size = 5), 
-                   fontface = 'bold', color = 'white', show.legend = F, force=50, segment.color="black", segment.size=1, min.segment.length = 0) + 
+                   fontface = 'bold', color = 'white', show.legend = F, force=25, segment.color="black", segment.size=1, min.segment.length = 0) + 
   theme_classic(base_size = 15) + 
   scale_color_manual(values = c( '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
   scale_fill_manual(values = c('#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 

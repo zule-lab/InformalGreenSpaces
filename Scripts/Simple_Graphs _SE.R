@@ -36,7 +36,7 @@ falaise_simpleSE_plot <- falaise_simpleSE_summarized %>%
         strip.background = element_rect(fill = "yellowgreen"), #colour of the facet strip on top of graphs 
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1), #add panel border colour to box off the plots
         legend.position = "none")+ #removes legend
-  labs(x ="Sensor Type", y ="Mean Temperature (°C)") +
+  labs(x ="Location", y ="Mean Temperature (°C)") +
   facet_wrap(vars(DayTime))
 
 falaise_simpleSE_plot
@@ -70,7 +70,7 @@ falaise_simpleSE_allsensors_plot <- falaise_allsensors_simpleSE_summary %>%
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
         axis.text.x=element_text(angle = 45, hjust =1),
         legend.position = "none")+
-  labs(x ="Sensor Type", y ="Mean Temperature (°C)") +
+  labs(x ="Sensor", y ="Mean Temperature (°C)") +
   facet_wrap(vars(DayTime))
 
 falaise_simpleSE_allsensors_plot
@@ -106,7 +106,7 @@ MHM_simpleSE_plot <- MHM_simpleSE_summary %>%
         strip.background = element_rect(fill = "yellowgreen"),
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
         legend.position = "none", axis.text.x=element_text(angle = 45, hjust =1))+
-  labs(x ="Sensor Type", y ="Mean Temperature (°C)") +
+  labs(x ="Location", y ="Mean Temperature (°C)") +
   facet_wrap(vars(DayTime))
 
 MHM_simpleSE_plot
@@ -181,7 +181,7 @@ MHM_ParkSubTypes_SimpleSE_plot <- parksubtypes_combined %>%
         strip.background = element_rect(fill = "yellowgreen"),
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
         legend.position = "none", axis.text.x=element_text(angle = 45, hjust =1))+
-  labs(x ="Sensor Type", y ="Mean Temperature (°C)") +
+  labs(x ="Location", y ="Mean Temperature (°C)") +
   facet_wrap(vars(DayTime))
 
 MHM_ParkSubTypes_SimpleSE_plot
@@ -214,7 +214,7 @@ MHM_simpleSE_allsensors_plot <- MHM_allsensors_simpleSE_summary %>%
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
         axis.text.x=element_text(angle = 45, hjust =1),
         legend.position = "none")+
-  labs(x ="Sensor Type", y ="Mean Temperature (°C)") +
+  labs(x ="Sensor", y ="Mean Temperature (°C)") +
   facet_wrap(vars(DayTime))
 
 MHM_simpleSE_allsensors_plot
@@ -249,7 +249,7 @@ CdesP_simpleSE_plot <- CdesP_simpleSE_summarized %>%
         strip.background = element_rect(fill = "yellowgreen"),
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
         legend.position = "none")+
-  labs(x ="Sensor Type", y ="Mean Temperature (°C)") +
+  labs(x ="Location", y ="Mean Temperature (°C)") +
   facet_wrap(vars(DayTime))
 
 CdesP_simpleSE_plot
@@ -282,7 +282,7 @@ CdesP_simpleSE_allsensors_plot <- CdesP_allsensors_simpleSE_summary %>%
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
         axis.text.x=element_text(angle = 45, hjust =1),
         legend.position = "none")+
-  labs(x ="Sensor Type", y ="Mean Temperature (°C)") +
+  labs(x ="Sensor", y ="Mean Temperature (°C)") +
   facet_wrap(vars(DayTime))
 
 CdesP_simpleSE_allsensors_plot
@@ -317,7 +317,7 @@ TP_simpleSE_plot <- TP_simpleSE_summarized %>%
         strip.background = element_rect(fill = "yellowgreen"),
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
         legend.position = "none")+
-  labs(x ="Sensor Type", y ="Mean Temperature (°C)") +
+  labs(x ="Location", y ="Mean Temperature (°C)") +
   facet_wrap(vars(DayTime))
 
 TP_simpleSE_plot
@@ -350,7 +350,7 @@ TP_simpleSE_allsensors_plot <- TP_allsensors_simpleSE_summary %>%
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
         axis.text.x=element_text(angle = 45, hjust =1),
         legend.position = "none")+
-  labs(x ="Sensor Type", y ="Mean Temperature (°C)") +
+  labs(x ="Sensor", y ="Mean Temperature (°C)") +
   facet_wrap(vars(DayTime))
 
 TP_simpleSE_allsensors_plot
