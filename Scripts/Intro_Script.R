@@ -80,8 +80,7 @@ summarized_F <- edited_temp_data_F %>%
   summarize(maxT = max(Temperature), #good if you need to look at mean temp of a day for a specific sensor
             meanT = mean(Temperature))
 
-#esquisser(summarized) #view the data and manipulate it which is pretty cool, thanks Rikka!
-
 ###########################
 
-  
+#esquisser(summarized) #view the data and manipulate it which is pretty cool, thanks Rikka!  
+
