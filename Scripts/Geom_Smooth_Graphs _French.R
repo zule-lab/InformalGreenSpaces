@@ -103,7 +103,7 @@ labeled_falaise_allsensors_plot_F <- falaise_allsensors_summary_F %>%
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +
   geom_label_repel(data = falaise_allsensors_sm_max_F, aes(y=smooth, label= round(smooth,1), fill = factor(Sensor_Name), size = 5),
                    fontface = 'bold', color = 'white', show.legend = F, force=30, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+  theme_classic(base_size = 20) + 
   scale_color_manual(values = c('#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + #my own colour palette that is easy to tell apart and is also colour blind friendly!
   scale_fill_manual(values = c('#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + #found in the intro :)
   #scale fill/colour are used to manually colour in the line as well as their labeles. ORDER MATTERS! With this data set, the last colour is the reference
