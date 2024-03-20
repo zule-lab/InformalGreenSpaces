@@ -36,7 +36,7 @@ labeled_falaise_smooth_plot_F <- falaise_subset_F %>% #plotting the graph
   geom_label_repel(data = falaise_sm_max_F, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
                    fontface = 'bold', color = 'white', show.legend = F, segment.color="black", segment.size=1, min.segment.length = 0) + 
   #Tip: Put repel labels AFTER the code for the smooth function makes it so the labels appear over the data (not hidden behind)!
-    theme_classic(base_size = 15) + #increases the base size of all text 
+    theme_classic(base_size = 20) + #increases the base size of all text 
   scale_color_manual(values=c("forestgreen", "gray48")) +
   scale_fill_manual(values=c("forestgreen", "gray48")) +
   labs(x= "Date (Mois)", y= "Température Moyenne Quotidienne (°C)") +
@@ -49,7 +49,7 @@ labeled_falaise_smooth_plot_F <- falaise_subset_F %>% #plotting the graph
   
 labeled_falaise_smooth_plot_F
 
-#ggsave("Falaise_Smooth_Plot_FRENCH.png", plot=labeled_falaise_smooth_plot_F, path = "Graphics", dpi = 600, width = 25, height = 15, units = "cm")
+#ggsave("Falaise_Smooth_Plot_FRENCH.png", plot=labeled_falaise_smooth_plot_F, path = "Graphics", dpi = 600, width = 25, height = 20, units = "cm")
 #Use the code above so save this graph!
 
 ##
@@ -147,7 +147,7 @@ labeled_MHM_smooth_plot_F <- MHM_subset_F %>%
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +  
   geom_label_repel(data = MHM_sm_max_F, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
                    fontface = 'bold', color = 'white', show.legend = F, force=50, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+  theme_classic(base_size = 20) + 
   scale_color_manual(values=c("forestgreen", "gray48")) +
   scale_fill_manual(values=c("forestgreen", "gray48")) +
   labs(x= "Date (Mois)", y= "Température Moyenne Quotidienne (°C)") +
@@ -160,7 +160,7 @@ labeled_MHM_smooth_plot_F <- MHM_subset_F %>%
 
 labeled_MHM_smooth_plot_F
 
-#ggsave("MHM_Smooth_Plot_FRENCH.png", plot=labeled_MHM_smooth_plot_F, path = "Graphics", dpi = 600, width = 25, height = 15, units = "cm")
+#ggsave("MHM_Smooth_Plot_FRENCH.png", plot=labeled_MHM_smooth_plot_F, path = "Graphics", dpi = 600, width = 25, height = 20, units = "cm")
 
 ##
 
@@ -254,7 +254,7 @@ MHM_ParkSubTypes_plot_F <- parksubtypes_combined_F %>%
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +
     geom_label_repel(data = parksubtypes_sm_max_F, aes(y=smooth, label= round(smooth,1), fill = factor(Park_Sub_Type), size = 5), 
                    fontface = 'bold', color = 'white', show.legend = F, force=25, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+  theme_classic(base_size = 20) + 
   scale_color_manual(values = c( '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
   scale_fill_manual(values = c('#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
   labs(x= "Date (Mois)", y= "Température Moyenne Quotidienne (°C)") +
@@ -297,8 +297,8 @@ labeled_MHM_allsensors_plot_F <- MHM_allsensors_summary_F %>%
   ggplot(combined, mapping = aes(Date, meanT, group = Sensor_Name, color = Sensor_Name)) +
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +
   geom_label_repel(data = MHM_allsensors_sm_max_F, aes(y=smooth, label= round(smooth,1), fill = factor(Sensor_Name), size=5), 
-                   fontface = 'bold', color = 'white', show.legend = F, force=10, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+                   fontface = 'bold', color = 'white', show.legend = F, force=15, segment.color="black", segment.size=1, min.segment.length = 0) + 
+  theme_classic(base_size = 20) + 
   scale_color_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#8100CC', '#BBBBBB')) + 
   scale_fill_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#8100CC', '#BBBBBB')) + 
     labs(x= "Date (Mois)", y= "Température Moyenne Quotidienne (°C)") +
@@ -340,7 +340,7 @@ labeled_CdesP_smooth_plot_F <- CdesP_subset_F %>%
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +  
   geom_label_repel(data = CdesP_sm_max_F, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
                    fontface = 'bold', color = 'white', show.legend = F, force=10, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+  theme_classic(base_size = 20) + 
   scale_color_manual(values=c("forestgreen", "gray48")) +
   scale_fill_manual(values=c("forestgreen", "gray48")) +
   labs(x= "Date (Mois)", y= "Température Moyenne Quotidienne (°C)") +
@@ -353,7 +353,7 @@ labeled_CdesP_smooth_plot_F <- CdesP_subset_F %>%
 
 labeled_CdesP_smooth_plot_F
 
-#ggsave("CdesP_Smooth_Plot_FRENCH.png", plot=labeled_CdesP_smooth_plot_F, path = "Graphics", dpi = 600, width = 25, height = 15, units = "cm")
+#ggsave("CdesP_Smooth_Plot_FRENCH.png", plot=labeled_CdesP_smooth_plot_F, path = "Graphics", dpi = 600, width = 25, height = 20, units = "cm")
 
 ##
 
@@ -406,7 +406,7 @@ labeled_CdesP_allsensors_plot_F <- CdesP_allsensors_summary_F %>%
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +
   geom_label_repel(data = CdesP_allsensors_sm_max_F, aes(y=smooth, label= round(smooth,1), fill = factor(Sensor_Name), size = 5), 
                    fontface = 'bold', color = 'white', show.legend = F, force=10, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+  theme_classic(base_size = 20) + 
   scale_color_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB', '#000000')) + 
   scale_fill_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB', '#000000')) + 
   labs(x= "Date (Mois)", y= "Température Moyenne Quotidienne (°C)") +
@@ -451,7 +451,7 @@ labeled_TP_smooth_plot_F <- TP_subset_F %>%
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +  
   geom_label_repel(data = TP_sm_max_F, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
                    fontface = 'bold', color = 'white', show.legend = F, force=10, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+  theme_classic(base_size = 20) + 
   scale_color_manual(values=c("forestgreen", "gray48")) +
   scale_fill_manual(values=c("forestgreen", "gray48")) +
   labs(x= "Date (Mois)", y= "Température Moyenne Quotidienne (°C)") +
@@ -465,7 +465,7 @@ labeled_TP_smooth_plot_F <- TP_subset_F %>%
 
 labeled_TP_smooth_plot_F 
 
-#ggsave("TP_Smooth_Plot_FRENCH.png", plot=labeled_TP_smooth_plot_F, path = "Graphics", dpi = 600, width = 25, height = 15, units = "cm")
+#ggsave("TP_Smooth_Plot_FRENCH.png", plot=labeled_TP_smooth_plot_F, path = "Graphics", dpi = 600, width = 25, height = 20, units = "cm")
 
 ##
 
@@ -515,8 +515,8 @@ labeled_TP_allsensors_plot_F <- TP_allsensors_summary_F %>%
   ggplot(combined, mapping = aes(Date, meanT, group = Sensor_Name, color = Sensor_Name)) +
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +
   geom_label_repel(data = TP_allsensors_sm_max_F, aes(y=smooth, label= round(smooth,1), fill = factor(Sensor_Name), size = 5),
-                   fontface = 'bold', color = 'white', show.legend = F, force=15, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+                   fontface = 'bold', color = 'white', show.legend = F, force=20, segment.color="black", segment.size=1, min.segment.length = 0) + 
+  theme_classic(base_size = 20) + 
   scale_color_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
   scale_fill_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
   facet_wrap(~ DayTime) +
