@@ -37,7 +37,7 @@ labeled_falaise_smooth_plot <- falaise_subset %>% #plotting the graph
   geom_label_repel(data = falaise_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
                    fontface = 'bold', color = 'white', show.legend = F, segment.color="black", segment.size=1, min.segment.length = 0) + 
   #Tip: Put repel labels AFTER the code for the smooth function makes it so the labels appear over the data (not hidden behind)!
-    theme_classic(base_size = 15) + #increases the base size of all text 
+    theme_classic(base_size = 20) + #increases the base size of all text 
   scale_color_manual(values=c("forestgreen", "gray48")) +
   scale_fill_manual(values=c("forestgreen", "gray48")) +
   labs(x= "Date (Month)", y= "Mean Daily Temperature (°C)") +
@@ -104,7 +104,7 @@ labeled_falaise_allsensors_plot <- falaise_allsensors_summary %>%
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +
   geom_label_repel(data = falaise_allsensors_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Sensor_Name), size = 5),
                    fontface = 'bold', color = 'white', show.legend = F, force=30, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+  theme_classic(base_size = 20) + 
   scale_color_manual(values = c('#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + #my own colour palette that is easy to tell apart and is also colourblind friendly!
   scale_fill_manual(values = c('#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + #found in the intro :)
   #scale fill/colour are used to manually colour in the line as well as their labeles. ORDER MATTERS! With this data set, the last colour is the reference
@@ -148,7 +148,7 @@ labeled_MHM_smooth_plot <- MHM_subset %>%
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +  
   geom_label_repel(data = MHM_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
                    fontface = 'bold', color = 'white', show.legend = F, force=50, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+  theme_classic(base_size = 20) + 
   scale_color_manual(values=c("forestgreen", "gray48")) +
   scale_fill_manual(values=c("forestgreen", "gray48")) +
   labs(x= "Date (Month)", y= "Mean Daily Temperature (°C)") +
@@ -256,7 +256,7 @@ MHM_ParkSubTypes_plot <- parksubtypes_combined %>%
   #geom_label_repel(data = sm_max, aes(y=smooth, label= round(smooth,1), color = Park_Sub_Type)) + 
   geom_label_repel(data = parksubtypes_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park_Sub_Type), size = 5), 
                    fontface = 'bold', color = 'white', show.legend = F, force=25, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+  theme_classic(base_size = 20) + 
   scale_color_manual(values = c( '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
   scale_fill_manual(values = c('#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
   labs(x= "Date (Month)", y= "Mean Daily Temperature (°C)") +
@@ -300,7 +300,7 @@ labeled_MHM_allsensors_plot <- MHM_allsensors_summary %>%
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +
   geom_label_repel(data = MHM_allsensors_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Sensor_Name), size=5), 
                    fontface = 'bold', color = 'white', show.legend = F, force=20, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+  theme_classic(base_size = 20) + 
   scale_color_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#8100CC', '#BBBBBB')) + 
   scale_fill_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#8100CC', '#BBBBBB')) + 
     labs(x= "Date (Month)", y= "Mean Daily Temperature (°C)") +
@@ -342,7 +342,7 @@ labeled_CdesP_smooth_plot <- CdesP_subset %>%
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +  
   geom_label_repel(data = CdesP_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
                    fontface = 'bold', color = 'white', show.legend = F, force=10, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+  theme_classic(base_size = 20) + 
   scale_color_manual(values=c("forestgreen", "gray48")) +
   scale_fill_manual(values=c("forestgreen", "gray48")) +
   labs(x= "Date (Month)", y= "Mean Daily Temperature (°C)") +
@@ -355,7 +355,7 @@ labeled_CdesP_smooth_plot <- CdesP_subset %>%
 
 labeled_CdesP_smooth_plot
 
-#ggsave("CdesP_Smooth_Plot.png", plot=labeled_CdesP_smooth_plot, path = "Graphics", dpi = 600, width = 25, height = 15, units = "cm")
+#ggsave("CdesP_Smooth_Plot.png", plot=labeled_CdesP_smooth_plot, path = "Graphics", dpi = 600, width = 25, height =20, units = "cm")
 
 ##
 
@@ -408,7 +408,7 @@ labeled_CdesP_allsensors_plot <- CdesP_allsensors_summary %>%
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +
   geom_label_repel(data = CdesP_allsensors_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Sensor_Name), size = 5), 
                    fontface = 'bold', color = 'white', show.legend = F, force=10, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+  theme_classic(base_size =20) + 
   scale_color_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB', '#000000')) + 
   scale_fill_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB', '#000000')) + 
   labs(x= "Date (Month)", y= "Mean Daily Temperature (°C)") +
@@ -453,7 +453,7 @@ labeled_TP_smooth_plot <- TP_subset %>%
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +  
   geom_label_repel(data = TP_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Park), size = 5),
                    fontface = 'bold', color = 'white', show.legend = F, force=10, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+  theme_classic(base_size =20) + 
   scale_color_manual(values=c("forestgreen", "gray48")) +
   scale_fill_manual(values=c("forestgreen", "gray48")) +
   labs(x= "Date (Month)", y= "Mean Daily Temperature (°C)") +
@@ -518,7 +518,7 @@ labeled_TP_allsensors_plot <- TP_allsensors_summary %>%
   geom_smooth(method = "loess", span=.6, se=F, linewidth=2.5) +
   geom_label_repel(data = TP_allsensors_sm_max, aes(y=smooth, label= round(smooth,1), fill = factor(Sensor_Name), size = 5),
                    fontface = 'bold', color = 'white', show.legend = F, force=20, segment.color="black", segment.size=1, min.segment.length = 0) + 
-  theme_classic(base_size = 15) + 
+  theme_classic(base_size = 20) + 
   scale_color_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
   scale_fill_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
   facet_wrap(~ DayTime) +
