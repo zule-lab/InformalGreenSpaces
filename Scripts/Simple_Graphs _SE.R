@@ -31,7 +31,7 @@ falaise_simpleSE_plot <- falaise_simpleSE_summarized %>%
   #Tip: Put repel labels AFTER the code for the points and error bars makes it so the labels appear above the data (unobstructed)! (I am silly and had no idea this worked liked this lol)
   scale_color_manual(values = c("forestgreen", "gray48")) + #Manually specifying the colours we want will make both the label and point colours be cohesive
   scale_fill_manual(values = c("forestgreen", "gray48")) + 
-  theme_classic(base_size = 15)+ #increases the base size of all text 
+  theme_classic(base_size = 20)+ #increases the base size of all text 
   theme(strip.text = element_text(size= 18, face="bold", colour = "black"), #size and colour of text of the facet strip on top of graphs
         strip.background = element_rect(fill = "yellowgreen"), #colour of the facet strip on top of graphs 
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1), #add panel border colour to box off the plots
@@ -75,7 +75,7 @@ falaise_simpleSE_allsensors_plot <- falaise_allsensors_simpleSE_summary %>%
 
 falaise_simpleSE_allsensors_plot
 
-#ggsave("Falaise_SimpleSE_AllSensors_Plot.png", plot=falaise_simpleSE_allsensors_plot, path = "Graphics", dpi = 600, width = 20, height = 25, units = "cm")
+#ggsave("Falaise_SimpleSE_AllSensors_Plot.png", plot=falaise_simpleSE_allsensors_plot, path = "Graphics", dpi = 600, width = 15, height = 20, units = "cm")
 
 #####
 
@@ -186,7 +186,7 @@ MHM_ParkSubTypes_SimpleSE_plot <- parksubtypes_combined %>%
 
 MHM_ParkSubTypes_SimpleSE_plot
 
-#ggsave("MHM_ParkSubTypes_SimpleSE_plot.png", plot=MHM_ParkSubTypes_SimpleSE_plot, path = "Graphics", dpi = 600, width = 20, height = 25, units = "cm")
+#ggsave("MHM_ParkSubTypes_SimpleSE_plot.png", plot=MHM_ParkSubTypes_SimpleSE_plot, path = "Graphics", dpi = 600, width = 15, height = 20, units = "cm")
 
 ##
 
@@ -219,7 +219,7 @@ MHM_simpleSE_allsensors_plot <- MHM_allsensors_simpleSE_summary %>%
 
 MHM_simpleSE_allsensors_plot
 
-#ggsave("MHM_SimpleSE_AllSensors_Plot.png", plot=MHM_simpleSE_allsensors_plot, path = "Graphics", dpi = 600, width = 20, height = 25, units = "cm")
+#ggsave("MHM_SimpleSE_AllSensors_Plot.png", plot=MHM_simpleSE_allsensors_plot, path = "Graphics", dpi = 600, width = 15, height = 20, units = "cm")
 
 #####
 
@@ -244,7 +244,7 @@ CdesP_simpleSE_plot <- CdesP_simpleSE_summarized %>%
                    fontface = 'bold', color = 'white', force=100, segment.color="black", segment.size=1, show.legend = F, min.segment.length = 0) + 
   scale_color_manual(values = c("forestgreen", "gray48")) + 
   scale_fill_manual(values = c("forestgreen", "gray48")) + 
-  theme_classic(base_size = 15)+  
+  theme_classic(base_size = 20)+  
   theme(strip.text = element_text(size= 18, face="bold", colour = "black"), 
         strip.background = element_rect(fill = "yellowgreen"),
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
@@ -287,7 +287,7 @@ CdesP_simpleSE_allsensors_plot <- CdesP_allsensors_simpleSE_summary %>%
 
 CdesP_simpleSE_allsensors_plot
 
-#ggsave("CdesP_SimpleSE_AllSensors_Plot.png", plot=CdesP_simpleSE_allsensors_plot, path = "Graphics", dpi = 600, width = 20, height = 25, units = "cm")
+#ggsave("CdesP_SimpleSE_AllSensors_Plot.png", plot=CdesP_simpleSE_allsensors_plot, path = "Graphics", dpi = 600, width = 15, height = 20, units = "cm")
 
 #####
 
@@ -312,7 +312,7 @@ TP_simpleSE_plot <- TP_simpleSE_summarized %>%
                    fontface = 'bold', color = 'white', force=100, segment.color="black", segment.size=1, show.legend = F, min.segment.length = 0) + 
   scale_color_manual(values = c("forestgreen", "gray48")) + 
   scale_fill_manual(values = c("forestgreen", "gray48")) + 
-  theme_classic(base_size = 15)+  
+  theme_classic(base_size = 20)+  
   theme(strip.text = element_text(size= 18, face="bold", colour = "black"), 
         strip.background = element_rect(fill = "yellowgreen"),
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
@@ -322,7 +322,7 @@ TP_simpleSE_plot <- TP_simpleSE_summarized %>%
 
 TP_simpleSE_plot
 
-#ggsave("TP_SimpleSE_Plot.png", plot=TP_simpleSE_plot, path = "Graphics", dpi = 600, width = 20, height = 25, units = "cm")
+#ggsave("TP_SimpleSE_Plot.png", plot=TP_simpleSE_plot, path = "Graphics", dpi = 600, width = 15, height = 20, units = "cm")
 
 ##
 
@@ -339,7 +339,7 @@ TP_simpleSE_allsensors_plot <- TP_allsensors_simpleSE_summary %>%
   ggplot() +
   aes(x=Sensor_Name , y= meanT, colour = Sensor_Name) +
   geom_point(size = 4)+ 
-  geom_errorbar(aes(ymin=meanT-SE, ymax=meanT+SE), width=.5, linewidth=1.5)+ 
+  geom_errorbar(aes(ymin=meanT-SE, ymax=meanT+SE), width=1, linewidth=1.5)+ 
   geom_label_repel(data = TP_allsensors_simpleSE_summary, aes(y=meanT, label= round(meanT,1), fill = factor(Sensor_Name), size=5), 
                    fontface = 'bold', color = 'white', show.legend = F, force=100, segment.color="black", segment.size=1, min.segment.length = 0) + 
   scale_fill_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB')) + 
@@ -355,4 +355,4 @@ TP_simpleSE_allsensors_plot <- TP_allsensors_simpleSE_summary %>%
 
 TP_simpleSE_allsensors_plot
 
-#ggsave("TP_SimpleSE_AllSensors_Plot.png", plot=TP_simpleSE_allsensors_plot, path = "Graphics", dpi = 600, width = 20, height = 25, units = "cm")
+#ggsave("TP_SimpleSE_AllSensors_Plot.png", plot=TP_simpleSE_allsensors_plot, path = "Graphics", dpi = 600, width = 15, height = 20, units = "cm")

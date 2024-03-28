@@ -33,7 +33,7 @@ falaise_simpleSE_plot_F <- falaise_simpleSE_summarized_F %>%
   #Tip: Put repel labels AFTER the code for the points and error bars makes it so the labels appear above the data (unobstructed)! (I am silly and had no idea this worked liked this lol)
   scale_color_manual(values = c("forestgreen", "gray48")) + #Manually specifying the colours we want will make both the label and point colours be cohesive
   scale_fill_manual(values = c("forestgreen", "gray48")) + 
-  theme_classic(base_size = 15)+ #increases the base size of all text 
+  theme_classic(base_size = 20)+ #increases the base size of all text 
   theme(strip.text = element_text(size= 18, face="bold", colour = "black"), #size and colour of text of the facet strip on top of graphs
         strip.background = element_rect(fill = "yellowgreen"), #colour of the facet strip on top of graphs 
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1), #add panel border colour to box off the plots
@@ -246,7 +246,7 @@ CdesP_simpleSE_plot_F <- CdesP_simpleSE_summarized_F %>%
                    fontface = 'bold', color = 'white', force=100, segment.color="black", segment.size=1, show.legend = F, min.segment.length = 0) + 
   scale_color_manual(values = c("forestgreen", "gray48")) + 
   scale_fill_manual(values = c("forestgreen", "gray48")) + 
-  theme_classic(base_size = 15)+  
+  theme_classic(base_size = 20)+  
   theme(strip.text = element_text(size= 18, face="bold", colour = "black"), 
         strip.background = element_rect(fill = "yellowgreen"),
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
@@ -314,7 +314,7 @@ TP_simpleSE_plot_F <- TP_simpleSE_summarized_F %>%
                    fontface = 'bold', color = 'white', force=100, segment.color="black", segment.size=1, show.legend = F, min.segment.length = 0) + 
   scale_color_manual(values = c("forestgreen", "gray48")) + 
   scale_fill_manual(values = c("forestgreen", "gray48")) + 
-  theme_classic(base_size = 15)+  
+  theme_classic(base_size = 20)+  
   theme(strip.text = element_text(size= 18, face="bold", colour = "black"), 
         strip.background = element_rect(fill = "yellowgreen"),
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
