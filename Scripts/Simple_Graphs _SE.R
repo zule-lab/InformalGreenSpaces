@@ -248,6 +248,7 @@ CdesP_simpleSE_plot <- CdesP_simpleSE_summarized %>%
   theme(strip.text = element_text(size= 18, face="bold", colour = "black"), 
         strip.background = element_rect(fill = "yellowgreen"),
         panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
+        axis.text.x=element_text(angle = 45, hjust =1),
         legend.position = "none")+
   labs(x ="Location", y ="Mean Temperature (°C)") +
   facet_wrap(vars(DayTime))
@@ -271,7 +272,7 @@ CdesP_simpleSE_allsensors_plot <- CdesP_allsensors_simpleSE_summary %>%
   ggplot() +
   aes(x=Sensor_Name , y= meanT, colour = Sensor_Name) +
   geom_point(size = 4)+ 
-  geom_errorbar(aes(ymin=meanT-SE, ymax=meanT+SE), width=.5, linewidth=1.5)+ 
+  geom_errorbar(aes(ymin=meanT-SE, ymax=meanT+SE), width=1, linewidth=1.5)+ 
   geom_label_repel(data = CdesP_allsensors_simpleSE_summary, aes(y=meanT, label= round(meanT,1), fill = factor(Sensor_Name), size=5), 
                    fontface = 'bold', color = 'white', show.legend = F, force=70, segment.color="black", segment.size=1, min.segment.length = 0) + 
   scale_color_manual(values = c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB', '#000000')) + 
