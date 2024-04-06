@@ -34,7 +34,8 @@ falaise_simpleSE_plot <- falaise_simpleSE_summarized %>%
   theme_classic(base_size = 20)+ #increases the base size of all text 
   theme(strip.text = element_text(size= 18, face="bold", colour = "black"), #size and colour of text of the facet strip on top of graphs
         strip.background = element_rect(fill = "yellowgreen"), #colour of the facet strip on top of graphs 
-        panel.border = element_rect(colour = "black", fill=NA, linewidth = 1), #add panel border colour to box off the plots
+        panel.border = element_rect(colour = "black", fill=NA, linewidth = 1),
+        axis.text.x=element_text(angle = 45, hjust =1), #add panel border colour to box off the plots
         legend.position = "none")+ #removes legend
   labs(x ="Location", y ="Mean Temperature (°C)") +
   facet_wrap(vars(DayTime))
