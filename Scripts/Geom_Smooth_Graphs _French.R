@@ -353,7 +353,7 @@ labeled_CdesP_smooth_plot_F <- CdesP_subset_F %>%
 
 labeled_CdesP_smooth_plot_F
 
-#ggsave("CdesP_Smooth_Plot_FRENCH.png", plot=labeled_CdesP_smooth_plot_F, path = "Graphics", dpi = 600, width = 25, height = 20, units = "cm")
+#ggsave("CdesP_Smooth_Plot_FRENCH.png", plot=labeled_CdesP_smooth_plot_F, path = "Graphics", dpi = 600, width = 25, height = 15, units = "cm")
 
 ##
 
