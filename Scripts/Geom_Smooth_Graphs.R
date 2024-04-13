@@ -230,7 +230,7 @@ MHM_Reference_summarized <- MHM_Reference_data %>%
 
 #Combine these
 
-parksubtypes_combined <- rbind(Friche_data_summarized, Boisé_Vimont_summarized, Boisé_Steinberg_summarized, MHM_Reference_summarized)
+parksubtypes_combined <- rbind(Friche_data_summarized, Boise_Vimont_summarized, Boise_Steinberg_summarized, MHM_Reference_summarized)
 
 
 #Plotting geom_smooth
