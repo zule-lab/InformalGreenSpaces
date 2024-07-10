@@ -47,7 +47,3 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
-
-# Ignore Graphics Folder
-Graphics
-
