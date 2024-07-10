@@ -36,7 +36,7 @@ c('#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#8100CC', '
 #This code sets the base language of R to something, in this case English if you are in French
 Sys.setlocale(category = "LC_ALL", "English")
 
-temperature_data <- read.csv("Input/Compiled_Data2023_2.csv")
+temperature_data <- read.csv("Input/Compiled_Data2023_English.csv")
 #View(temperature_data)
 
 ##Editing the data to make the data frame that will be used for analysis 
