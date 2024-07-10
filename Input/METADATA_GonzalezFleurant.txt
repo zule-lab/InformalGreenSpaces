@@ -1,0 +1,9 @@
+This file describes the variables in the datasets that accompany the Informal Green Space Project work from 2023.
+
+dataset: Compiled_Data2023 (english + french versions)
+
+
+DateTime: Date (yyyy/mm/dd) + Time (hh:mm:ss am/pm) of data point 
+Temperature: Temperature reading 
+Sensor_Name: Name of sensor 
+Park: Name of Green Space 
